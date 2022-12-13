@@ -169,15 +169,15 @@ def user_stats(df,city):
     print('-'*40)
 
 #Here we will display raw data to the user
-def display_row_data(df):
+def show_row_data(df):
     row=0
     while True:
-        display_row_data = input("Do you want to see raw data? if Yes enter (y) and if No enter (n).\n").lower()
+        show_row_data = input("Do you want to see raw data? if Yes enter (y) and if No enter (n).\n").lower()
 
-        if display_row_data == "y":
+        if show_row_data == "y":
             print(df.iloc[row : row + 6])
             row += 6
-        elif display_row_data == "n":
+        elif show_row_data == "n":
             break
         else:
             print("INVALID INPUT!")
@@ -191,7 +191,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df,city)
-        display_row_data(df)
+        show_row_data(df)
         restart = input('\nWould you like to restart? Enter "y" for yes or "n" for no.\n').lower()
         if restart.lower() != 'y':
             break
