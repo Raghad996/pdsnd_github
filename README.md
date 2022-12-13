@@ -17,7 +17,6 @@ It's important to give proper credit. Add links to any repo that inspired you or
 
 ### Create Date 
 13 DEC 2022
-<<<<<<< HEAD
 =======
 
 ### Project status
@@ -26,4 +25,4 @@ it's completed
 
 ### project description
 creating a github profile and do some commands.
->>>>>>> documentation
+
