@@ -9,7 +9,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 #Here is the month list and day list
 month_list=['january', 'february', 'march', 'april', 'may', 'june','all']
 day_list=['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all']
-
+#Here will check user inputs
 def check_user_input(user_input,i_type):
     while True:
             i_u=input(user_input).lower()
@@ -169,7 +169,12 @@ def user_stats(df,city):
     print('-'*40)
 
 #Here we will display raw data to the user
+<<<<<<< HEAD
 def show_row_data(df):
+=======
+#if yes we will display and if no will break
+def display_row_data(df):
+>>>>>>> documentation
     row=0
     while True:
         show_row_data = input("Do you want to see raw data? if Yes enter (y) and if No enter (n).\n").lower()
@@ -180,7 +185,11 @@ def show_row_data(df):
         elif show_row_data == "n":
             break
         else:
+<<<<<<< HEAD
             print("INVALID INPUT!")
+=======
+            print("try Again!")
+>>>>>>> documentation
 
 def main():
   while True:
