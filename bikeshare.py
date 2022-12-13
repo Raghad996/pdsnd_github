@@ -169,6 +169,7 @@ def user_stats(df,city):
     print('-'*40)
 
 #Here we will display raw data to the user
+#if yes we will display and if no will break
 def display_row_data(df):
     row=0
     while True:
