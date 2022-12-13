@@ -9,7 +9,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 #Here is the month list and day list
 month_list=['january', 'february', 'march', 'april', 'may', 'june','all']
 day_list=['sunday','monday','tuesday','wednesday','thursday','friday','saturday','all']
-
+#Here will check user inputs
 def check_user_input(user_input,i_type):
     while True:
             i_u=input(user_input).lower()
@@ -32,19 +32,19 @@ def check_user_input(user_input,i_type):
     return i_u
 
 def get_filters():
-    
+
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
      # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = check_user_input("Kindly, select a city you want to analyze:\n{chicago}\n{new york city} \n{washington}\n",'c')
     # TO DO: get user input for month (all, january, february, ... , june)
     month = check_user_input("Kindly, select a month between {January to June} if you need to view data for all months,select 'all': \n", 'm')
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     day = check_user_input("Kindly, select a day between {sunday, monday, tuesday, wednesday, thursday, friday, saturday} if you need to view data for all days,select 'all':\n", 'd')
-    
+
     print('-'*40)
     return city, month, day
-   
+
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -64,7 +64,7 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    
+
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
@@ -73,9 +73,9 @@ def load_data(city, month, day):
         df = df[df['month'] == month]
 
     if day != 'all':
-        # now we need filter by day of week 
+        # now we need filter by day of week
         df = df[df['day_of_week'] == day.title()]
-        
+
     return df
 
 def time_stats(df):
@@ -98,7 +98,7 @@ def time_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -120,7 +120,7 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -138,7 +138,7 @@ def trip_duration_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def user_stats(df,city):
     """Displays statistics on bikeshare users."""
 
@@ -147,10 +147,10 @@ def user_stats(df,city):
 
     # TO DO: Display counts of user types
     print('User Types in Data are: ',df['User Type'].value_counts())
-  
+
     # will ensure that the city is not washington
     if city != 'washington':
-        
+
          # TO DO: Display counts of gender
         print('Counts Of Gender: ',df['Gender'].value_counts())
 
@@ -164,11 +164,11 @@ def user_stats(df,city):
         most_common_year = df['Birth Year'].mode()[0]
         print('Most Common Year is: ',most_common_year)
 
-       
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-#Here we will display raw data to the user     
+
+#Here we will display raw data to the user
 def display_row_data(df):
     row=0
     while True:
@@ -181,12 +181,12 @@ def display_row_data(df):
             break
         else:
             print("try Again!")
-            
+
 def main():
   while True:
-        city,month,day = get_filters()      
+        city,month,day = get_filters()
         df = load_data(city,month,day)
-        
+
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
@@ -195,6 +195,6 @@ def main():
         restart = input('\nWould you like to restart? Enter "y" for yes or "n" for no.\n').lower()
         if restart.lower() != 'y':
             break
-        
+
 if __name__ == "__main__":
 	main()
